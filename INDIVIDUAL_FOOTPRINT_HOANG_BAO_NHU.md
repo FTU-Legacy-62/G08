@@ -1,6 +1,6 @@
 # Individual Footprint
 
-**Thành viên 2: Hoàng Bảo Như - 2313380025**
+**Thành viên: Hoàng Bảo Như - 2313380025**
 
 ## 1. Vai trò trong dự án
 
