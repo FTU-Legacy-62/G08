@@ -1,0 +1,566 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FREE FALL</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@600;700&family=DM+Serif+Display&display=swap" 
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- =========================
+       LANDING PAGE
+  ========================== -->
+  <section id="landing-page" class="page landing-page active">
+    <div class="landing-overlay">
+<h1 class="main-title">FREE FALL</h1>
+<p class="subtitle">How crisis-ready are you?</p>
+<button id="start-btn" class="primary-btn">
+  Are you ready?
+</button>
+    </div>
+  </section>
+
+  <!-- =========================
+     RULES PAGE
+========================== -->
+<section id="rules-page" class="page rules-page">
+  <div class="rules-wrapper">
+    <div class="rules-card">
+      <p class="rules-kicker">Before the crisis begins</p>
+
+      <h2>Game Rules</h2>
+
+      <p class="rules-role">
+        You are an investment analyst entering a financial crisis.
+      </p>
+
+      <p class="rules-tagline">
+        Read the signals. Question the noise. Protect the portfolio.
+      </p>
+
+      <div class="rules-list">
+        <div class="rule-item">
+          <span>01</span>
+          <p>The simulation has 6 phases.</p>
+        </div>
+
+        <div class="rule-item">
+          <span>02</span>
+          <p>Information arrives through News, Internet, Gmail, Messenger, and Files.</p>
+        </div>
+
+        <div class="rule-item">
+          <span>03</span>
+          <p>Some signals are useful; others may be biased, incomplete, or misleading.</p>
+        </div>
+
+        <div class="rule-item">
+          <span>04</span>
+          <p>Research Files cost RB. You gain +2 RB each phase, and unused RB carries over.</p>
+        </div>
+
+        <div class="rule-item">
+          <span>05</span>
+          <p>Each phase requires one portfolio decision.</p>
+        </div>
+
+        <div class="rule-item">
+          <span>06</span>
+          <p>Your decision changes your asset allocation and affects future returns.</p>
+        </div>
+
+        <div class="rule-item">
+          <span>07</span>
+          <p>Risky assets may reward you early, but can become dangerous when liquidity disappears.</p>
+        </div>
+
+        <div class="rule-item">
+          <span>08</span>
+          <p>Your final result depends on Portfolio Value, Risk Control, and Decision Quality.</p>
+        </div>
+
+        <div class="rule-item">
+          <span>09</span>
+          <p>Ignoring research or taking reckless exposure may limit your final result.</p>
+        </div>
+      </div>
+
+      <div class="goal-box">
+        <h3>Goal</h3>
+        <p>
+          Do not just chase returns. Survive the crisis with evidence, liquidity, and discipline.
+        </p>
+      </div>
+
+      <div class="rules-actions">
+        <button id="rules-back-btn" class="secondary-btn">Back</button>
+        <button id="rules-start-btn" class="primary-btn">Continue</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- =========================
+       CASE SELECTION PAGE
+  ========================== -->
+  <section id="case-page" class="page case-page">
+    <div class="case-wrapper">
+      <h2 class="page-title">Choose your crisis</h2>
+
+      <div class="case-grid">
+        <!-- Case 1: playable -->
+        <div class="case-card playable" data-case="hollow-boom">
+          <img src="asset/game1-cover.jpg" alt="The Hollow Boom" />
+
+          <div class="case-info">
+            <div class="case-meta">
+              <span>⏱ 20 mins</span>
+              <span>▮▮▮ Hard</span>
+            </div>
+
+            <h3>The Hollow Boom</h3>
+
+            <p>
+              You are an analyst in a booming credit market. Prices rise,
+              clients push for returns, and risk looks safely engineered away -
+              until liquidity disappears.
+            </p>
+
+            <button class="case-btn">Play this case</button>
+          </div>
+        </div>
+
+        <!-- Case 2: locked -->
+        <div class="case-card locked">
+          <img src="asset/game2-cover.jpg" alt="The Glitter Trap" />
+
+          <div class="case-info">
+            <div class="case-meta">
+              <span>⏱ 10 mins</span>
+              <span>▮ Easy</span>
+            </div>
+
+            <h3>The Glitter Trap</h3>
+
+            <p>
+              A high-hype market where prices rise faster than fundamentals.
+              Coming soon.
+            </p>
+
+            <button class="case-btn disabled" disabled>Coming soon</button>
+          </div>
+        </div>
+
+        <!-- Case 3: locked -->
+        <div class="case-card locked">
+          <img src="asset/game3-cover.jpg" alt="The Silent Stop" />
+
+          <div class="case-info">
+            <div class="case-meta">
+              <span>⏱ 15 mins</span>
+              <span>▮▮ Medium</span>
+            </div>
+
+            <h3>The Silent Stop</h3>
+
+            <p>
+              A sudden external shock freezes normal activity.
+              Coming soon.
+            </p>
+
+            <button class="case-btn disabled" disabled>Coming soon</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================
+       GAME PAGE
+  ========================== -->
+  <section id="game-page" class="page game-page">
+    <div class="game-layout">
+      <!-- LEFT SIDEBAR -->
+      <aside class="sidebar">
+        <button class="side-btn" data-tab="news">
+          <span class="notification-dot"></span>
+          <span class="side-icon" data-icon="news" aria-hidden="true"></span>
+          <small>News</small>
+        </button>
+
+        <button class="side-btn" data-tab="social">
+          <span class="notification-dot"></span>
+          <span class="side-icon" data-icon="social" aria-hidden="true"></span>
+          <small>Social</small>
+        </button>
+
+        <button class="side-btn" data-tab="email">
+          <span class="notification-dot"></span>
+          <span class="side-icon" data-icon="email" aria-hidden="true"></span>
+          <small>Gmail</small>
+        </button>
+
+        <button class="side-btn" data-tab="chat">
+          <span class="notification-dot"></span>
+          <span class="side-icon" data-icon="chat" aria-hidden="true"></span>
+          <small>Chat</small>
+        </button>
+
+        <button class="side-btn" data-tab="file">
+          <span class="notification-dot"></span>
+          <span class="side-icon" data-icon="file" aria-hidden="true"></span>
+          <small>Files</small>
+        </button>
+
+        <button class="side-btn decision-side-btn" data-tab="decision">
+          <span class="notification-dot"></span>
+          <span class="side-icon" data-icon="decision" aria-hidden="true"></span>
+          <small>Decision</small>
+        </button>
+      </aside>
+
+      <!-- MAIN CONTENT -->
+      <main class="main-panel">
+        <div id="content-box" class="content-box"></div>
+      </main>
+
+      <!-- RIGHT PANEL -->
+      <aside class="right-panel">
+        <!-- Status + phase market returns -->
+        <div class="status-card">
+          <div class="phase-line">
+            <span id="phase-label">Phase 1/6</span>
+            <span id="progress-percent">17%</span>
+          </div>
+
+          <div class="progress-bar">
+            <div id="progress-fill"></div>
+          </div>
+
+       <div class="portfolio-hero-card">
+  <small>Portfolio</small>
+  <strong id="portfolio-value">$100,000</strong>
+  <span>Total portfolio value</span>
+</div>
+
+<div class="research-budget-strip">
+  <div>
+    <small>Research Budget</small>
+    <strong id="research-budget">0 RB</strong>
+  </div>
+  <span>+2 RB each phase, carries over</span>
+</div>
+
+<div class="market-section-title">Phase Market Returns</div>
+<div id="market-data-grid" class="market-data-grid"></div>
+<div class="market-return-note">
+  Returns are phase-specific stylized returns for gameplay simulation. Each phase return is applied directly to the current allocation to update Portfolio Value.
+</div>
+
+          <div id="arrival-card" class="arrival-card"></div>
+          <div id="last-outcome" class="last-outcome"></div>
+        </div>
+
+        <!-- Allocation -->
+        <div class="allocation-card">
+          <h3>Current Allocation</h3>
+          <div id="allocation-list" class="allocation-list"></div>
+        </div>
+
+        <!-- Task list -->
+        <div class="task-card">
+          <h3>Incoming Information</h3>
+          <ul id="task-list"></ul>
+        </div>
+
+        <!-- Continue button -->
+        <button id="next-phase-btn" class="primary-btn next-btn">
+          Confirm & Continue
+        </button>
+      </aside>
+    </div>
+  </section>
+
+  <!-- =========================
+       RESULT PAGE
+  ========================== -->
+  <section id="result-page" class="page result-page">
+    <div class="result-box">
+      <h2>Your Result</h2>
+      <h1 id="result-title">Balanced Survivor</h1>
+
+      <div class="result-stats">
+        <div class="result-stat-primary">
+          <small>Final Portfolio</small>
+          <strong>$100,000</strong>
+        </div>
+
+        <div class="result-stat-primary">
+          <small>Crisis Readiness</small>
+          <strong>70/100</strong>
+        </div>
+
+        <div>
+          <small>Portfolio Value</small>
+          <strong>70/100</strong>
+        </div>
+
+        <div>
+          <small>Risk Control</small>
+          <strong>70/100</strong>
+        </div>
+
+        <div>
+          <small>Decision Quality</small>
+          <strong>70/100</strong>
+        </div>
+      </div>
+
+      <div id="result-description" class="result-feedback"></div>
+
+      <div id="decision-replay" class="decision-replay"></div>
+
+    <div class="result-actions">
+      <button id="reveal-case-btn" class="primary-btn">Reveal Real Case</button>
+      <button id="restart-btn" class="secondary-btn">Back to Landing</button>
+    </div>  
+    </div>
+  </section>
+
+  <!-- =========================
+     CASE REVEAL PAGE
+========================== -->
+<section id="reveal-page" class="page reveal-page">
+  <div class="reveal-wrapper">
+    <div class="reveal-card">
+      <p class="reveal-kicker">Case Reveal</p>
+
+      <h2>The Reality Behind the Simulation</h2>
+
+      <div class="reveal-highlight">
+        <small>The real-world case was inspired by</small>
+        <strong>Global Financial Crisis</strong>
+        <span>2008-2009</span>
+      </div>
+
+      <div class="reveal-content">
+  <section class="reveal-section">
+    <h3>What happened in reality?</h3>
+
+    <p>
+      The Global Financial Crisis did not happen overnight. It developed gradually,
+      from a period of easy credit and rising confidence into a full financial panic.
+      The simulation you just played was designed to mirror that process across six phases.
+    </p>
+
+    <div class="phase-reveal">
+      <h4>Phase 1 - Normal Market: Easy credit and rising confidence</h4>
+
+      <p>
+        In the early 2000s, the U.S. housing market looked strong. Housing prices were rising,
+        mortgage lending expanded, and major financial institutions were earning large profits
+        from lending, securitization, and trading. Under low interest rates and easy credit conditions,
+        more households were able to borrow, including subprime borrowers with weaker credit quality.
+      </p>
+
+      <p>
+        Institutions such as Countrywide Financial expanded mortgage lending aggressively, while
+        Fannie Mae and Freddie Mac played major roles in the housing finance system. At this stage,
+        risk did not appear urgent. Defaults seemed manageable, credit markets were liquid, and many
+        investors believed that mortgage risk had been reduced through diversification and financial engineering.
+      </p>
+    </div>
+
+    <div class="phase-reveal">
+      <h4>Phase 2 - New Opportunity: Mortgages become investment products</h4>
+
+      <p>
+        As investors searched for higher yield, mortgages were bundled into mortgage-backed securities,
+        known as MBS, and more complex products such as collateralized debt obligations, or CDOs.
+        These products were sold to banks, funds, insurance companies, and institutional investors
+        around the world.
+      </p>
+
+      <p>
+        Credit rating agencies such as Moody's, Standard & Poor's, and Fitch gave high ratings to many
+        senior tranches, including AAA ratings. This made structured credit products appear safe and attractive.
+        Major financial institutions such as Goldman Sachs, Merrill Lynch, Citigroup, Morgan Stanley, and
+        Deutsche Bank were deeply involved in structuring, selling, or holding mortgage-related products.
+      </p>
+
+      <p>
+        The market believed that risk had been transformed into safe, tradable assets through structuring,
+        ratings, and diversification. In reality, the financial system was becoming more connected because
+        many institutions were exposed to similar mortgage-related risks.
+      </p>
+    </div>
+
+    <div class="phase-reveal">
+      <h4>Phase 3 - Boom & FOMO: Strong returns hide weak fundamentals</h4>
+
+      <p>
+        During the boom, mortgage-related products delivered attractive returns. Investors who avoided them
+        risked underperforming their peers, while funds and banks that held more structured credit appeared
+        more profitable. This created pressure to keep participating in the trade.
+      </p>
+
+      <p>
+        However, the quality of the underlying loans was deteriorating. Lending standards weakened,
+        adjustable-rate mortgages became more common, and many borrowers depended on rising home prices
+        to refinance their loans. By 2006, U.S. home prices had started to peak, but many market participants
+        still believed that the problem was limited.
+      </p>
+
+      <p>
+        At this stage, early warning signs existed, but they were easy to dismiss. Stress in subprime lending
+        looked like an isolated problem rather than the beginning of a system-wide crisis.
+      </p>
+    </div>
+
+    <div class="phase-reveal">
+      <h4>Phase 4 - Mixed Signals: Cracks appear and valuation becomes uncertain</h4>
+
+      <p>
+        In 2007, the subprime mortgage problem became harder to ignore. New Century Financial, one of the
+        largest subprime lenders in the United States, filed for bankruptcy. Two Bear Stearns hedge funds with
+        heavy exposure to mortgage-backed securities also collapsed.
+      </p>
+
+      <p>
+        The issue was no longer only about whether borrowers could repay. It became a valuation and confidence
+        problem. Many mortgage-related products were difficult to price because there were fewer real buyers in
+        the market. In August 2007, BNP Paribas froze withdrawals from three investment funds because it could
+        not properly value some mortgage-related assets.
+      </p>
+
+      <p>
+        The market entered a confusing stage. Some investors still believed the weakness was temporary or limited
+        to lower-quality mortgages. Others became more cautious because liquidity was becoming unreliable, and
+        model prices no longer clearly matched executable market prices.
+      </p>
+    </div>
+
+    <div class="phase-reveal">
+      <h4>Phase 5 - Market Stress: Liquidity and funding pressure spread</h4>
+
+      <p>
+        By 2008, liquidity stress had become severe. Institutions that relied on short-term funding were especially
+        vulnerable because they held long-term and complex assets that could not be sold quickly without large discounts.
+      </p>
+
+      <p>
+        Bear Stearns nearly collapsed in March 2008 and was sold to JPMorgan Chase with support from the Federal Reserve.
+        Later that year, Fannie Mae and Freddie Mac were placed into government conservatorship. AIG also came under
+        extreme pressure because of its exposure to credit default swaps linked to mortgage securities.
+      </p>
+
+      <p>
+        The crisis was no longer just about bad mortgages. It had become a liquidity, funding, and counterparty confidence
+        crisis. Falling asset prices reduced confidence, weaker confidence reduced liquidity, and lower liquidity forced
+        more selling. This feedback loop made the financial system increasingly fragile.
+      </p>
+    </div>
+
+    <div class="phase-reveal">
+      <h4>Phase 6 - Crash & Reveal: Confidence breaks and the system freezes</h4>
+
+      <p>
+        The crisis reached a systemic breaking point in September 2008 when Lehman Brothers filed for bankruptcy.
+        Its collapse intensified panic across global financial markets because investors no longer knew which institutions
+        were safe.
+      </p>
+
+      <p>
+        Shortly after, AIG required a major rescue, and the U.S. government introduced emergency measures, including the
+        Troubled Asset Relief Program, or TARP, which authorized up to $700 billion to stabilize the financial system.
+        Banks became unwilling to lend to each other, credit markets froze, and the crisis spread into the real economy.
+      </p>
+
+      <p>
+        The Great Recession lasted from December 2007 to June 2009. U.S. real GDP fell by about 4.3% from peak to trough,
+        and unemployment rose sharply. The crisis revealed that a system that had looked profitable and well-managed was
+        actually built on fragile assumptions about housing prices, liquidity, ratings, leverage, and trust.
+      </p>
+    </div>
+  </section>
+
+  <section class="reveal-section">
+    <h3>How this connects to your game</h3>
+
+    <p>
+      In your game, the crisis unfolded in the same way: slowly at first, then suddenly.
+      Early phases rewarded risk-taking. Later phases revealed weak borrower quality, crowded trades,
+      liquidity pressure, margin calls, and systemic panic.
+    </p>
+
+    <p>
+      The main challenge was not simply predicting the crash. The real challenge was deciding how much
+      risk to take while the market still looked normal.
+    </p>
+  </section>
+
+  <section class="reveal-section lessons-section">
+    <h3>Lessons learned</h3>
+
+    <ul>
+      <li>High returns can hide rising risk.</li>
+      <li>Liquidity matters most when markets are stressed.</li>
+      <li>Models and ratings cannot fully capture crisis conditions.</li>
+      <li>Crowded "safe" trades can become dangerous.</li>
+      <li>Short-term funding can make long-term assets fragile.</li>
+      <li>Good risk control means balancing return, evidence, liquidity, and survival.</li>
+      <li>The best crisis decisions are made before panic becomes obvious.</li>
+    </ul>
+  </section>
+
+  <section class="final-message-box">
+    <h3>Final Message</h3>
+
+    <p>Do not just ask: "How much can I earn?"</p>
+    <strong>Ask: "Can this portfolio survive when confidence disappears?"</strong>
+  </section>
+</div>
+
+<div class="reveal-actions">
+  <button id="view-result-again-btn" class="secondary-btn">
+    View Result Again
+  </button>
+
+  <button id="back-landing-from-reveal-btn" class="primary-btn">
+    Back to Landing Page
+  </button>
+</div>
+
+    </div>
+  </div>
+</section>
+  <!-- =========================
+       PDF MODAL
+       Required for Files popup
+  ========================== -->
+  <div id="pdf-modal" class="pdf-modal">
+    <div class="pdf-modal-dialog">
+      <div class="pdf-modal-header">
+        <strong id="pdf-modal-title">Document Preview</strong>
+        <button id="pdf-modal-close" class="pdf-modal-close">x</button>
+      </div>
+
+      <div id="pdf-modal-body" class="pdf-modal-body"></div>
+    </div>
+  </div>
+
+  <!-- Main JavaScript -->
+  <script src="app.js"></script>
+</body>
+</html>
+
