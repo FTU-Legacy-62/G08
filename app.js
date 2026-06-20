@@ -1,4 +1,4 @@
-﻿/* =========================
+/* =========================
    FREE FALL - UPDATED FINAL MVP ENGINE
    Updated from the latest New information.zip (Freefall.xlsx, mail.docx, evidence files, final feedback logic).
 
@@ -295,6 +295,342 @@ const DQ_RUBRIC = {
   4: { A: { eu: 60, bc: 60 }, B: { eu: 60, bc: 60 }, C: { eu: 100, bc: 100 }, D: { eu: 80, bc: 80 } },
   5: { A: { eu: 60, bc: 60 }, B: { eu: 40, bc: 40 }, C: { eu: 100, bc: 100 }, D: { eu: 80, bc: 80 } },
   6: { A: { eu: 60, bc: 40 }, B: { eu: 80, bc: 80 }, C: { eu: 60, bc: 60 }, D: { eu: 100, bc: 100 } }
+};
+
+const interactiveChatFollowUps = {
+  phase1_chat1: {
+    interactive: true,
+    followUps: [
+      {
+        id: "p1c1_a",
+        question: "Is this already a risk-control issue?",
+        response: {
+          sender: "Lena",
+          text: "Not by current limits. The concern is that the trade looks safe because recent history has been calm, not because the downside has disappeared."
+        }
+      },
+      {
+        id: "p1c1_b",
+        question: "What is the hidden risk if the marks look stable?",
+        response: {
+          sender: "Lena",
+          text: "Stable marks can make exits look easier than they really are. If many funds try to reduce exposure at once, liquidity may not be there."
+        }
+      },
+      {
+        id: "p1c1_c",
+        question: "Would Risk object to a small allocation?",
+        response: {
+          sender: "Lena",
+          text: "A small allocation is defensible. What I would not do is treat structured income like cash or high-quality bonds."
+        }
+      },
+      {
+        id: "p1c1_d",
+        question: "What should we monitor before increasing exposure?",
+        response: {
+          sender: "Lena",
+          text: "Crowding, dealer liquidity, and how much of the return depends on assumptions staying calm. The yield alone is not enough information."
+        }
+      }
+    ]
+  },
+  phase2_chat2: {
+    interactive: true,
+    followUps: [
+      {
+        id: "p2c2_a",
+        question: "Can we actually buy this exposure today?",
+        response: {
+          sender: "Jon",
+          text: "Yes, today we can. Clean senior names are trading, and dealers still want to show bids."
+        }
+      },
+      {
+        id: "p2c2_b",
+        question: "Does strong bidding mean the exit is safe?",
+        response: {
+          sender: "Jon",
+          text: "It means the market works today. It does not guarantee the same exit price if everyone tries to sell later."
+        }
+      },
+      {
+        id: "p2c2_c",
+        question: "Where are dealers becoming more selective?",
+        response: {
+          sender: "Jon",
+          text: "Weaker pools and lower-quality originators get more questions. Clean collateral is still fine, but the desk is not treating everything the same."
+        }
+      },
+      {
+        id: "p2c2_d",
+        question: "Would trade size change execution?",
+        response: {
+          sender: "Jon",
+          text: "Reasonable size is fine. A large block would need a discount or several calls. Screen price and executable price are not always the same."
+        }
+      }
+    ]
+  },
+  phase3_chat1: {
+    interactive: true,
+    followUps: [
+      {
+        id: "p3c1_a",
+        question: "Are senior positions still protected?",
+        response: {
+          sender: "Lena",
+          text: "Under the base case, yes. The problem is that the base case depends on correlation, refinancing, and exit timing staying manageable."
+        }
+      },
+      {
+        id: "p3c1_b",
+        question: "Is this enough evidence to cut exposure?",
+        response: {
+          sender: "Lena",
+          text: "Not automatically. It is enough to stop treating the position as low-maintenance. The risk is becoming more conditional."
+        }
+      },
+      {
+        id: "p3c1_c",
+        question: "What is getting less clean in the data?",
+        response: {
+          sender: "Lena",
+          text: "Weak borrower pools are showing up more often. It is not a collapse signal by itself, but it makes the margin of safety thinner."
+        }
+      },
+      {
+        id: "p3c1_d",
+        question: "What would make this position dangerous?",
+        response: {
+          sender: "Lena",
+          text: "The dangerous version is not just lower value. It is lower value plus poor liquidity when the fund needs to sell."
+        }
+      }
+    ]
+  },
+  phase3_chat3: {
+    interactive: true,
+    followUps: [
+      {
+        id: "p3c3_a",
+        question: "How strong is the client pressure?",
+        response: {
+          sender: "Maya",
+          text: "It is not an order, but it is real pressure. They are asking why peer funds are earning more from the same market theme."
+        }
+      },
+      {
+        id: "p3c3_b",
+        question: "Can we defend staying cautious?",
+        response: {
+          sender: "Maya",
+          text: "Yes, but only if we explain the risk clearly. A vague answer will sound like we simply missed the trade."
+        }
+      },
+      {
+        id: "p3c3_c",
+        question: "What would look worst to the client right now?",
+        response: {
+          sender: "Maya",
+          text: "Cutting risk too early and watching peers keep outperforming. That would be hard to defend unless we have strong evidence."
+        }
+      },
+      {
+        id: "p3c3_d",
+        question: "What message would sound balanced?",
+        response: {
+          sender: "Maya",
+          text: "Say we recognize the return opportunity, but we are separating clean senior exposure from crowded or liquidity-sensitive exposure."
+        }
+      }
+    ]
+  },
+  phase4_chat1: {
+    interactive: true,
+    followUps: [
+      {
+        id: "p4c1_a",
+        question: "Are the reported returns still reliable?",
+        response: {
+          sender: "Lena",
+          text: "They are useful, but less complete than before. A mark is not the same as a cash price from a real buyer."
+        }
+      },
+      {
+        id: "p4c1_b",
+        question: "What is the difference between clean and messy collateral here?",
+        response: {
+          sender: "Lena",
+          text: "Clean collateral still supports confidence. Messy collateral creates wider valuation ranges and makes exit timing more important."
+        }
+      },
+      {
+        id: "p4c1_c",
+        question: "Should we separate performance risk from liquidity risk?",
+        response: {
+          sender: "Lena",
+          text: "Yes. A position can still show income while becoming harder to exit. That is exactly why the decision is difficult."
+        }
+      },
+      {
+        id: "p4c1_d",
+        question: "What would make holding dangerous now?",
+        response: {
+          sender: "Lena",
+          text: "Holding becomes dangerous if we rely on marks that assume patient selling, while the fund may later need urgent liquidity."
+        }
+      }
+    ]
+  },
+  phase4_chat2: {
+    interactive: true,
+    followUps: [
+      {
+        id: "p4c2_a",
+        question: "Are these real bids or just price discovery?",
+        response: {
+          sender: "Jon",
+          text: "Both. Clean senior paper has real interest. Messy pools attract lowball bids and more negotiation."
+        }
+      },
+      {
+        id: "p4c2_b",
+        question: "Could we sell if we had to?",
+        response: {
+          sender: "Jon",
+          text: "Yes, but the price depends on urgency and size. A patient seller gets a different market from a forced seller."
+        }
+      },
+      {
+        id: "p4c2_c",
+        question: "Are buyers coming back because risk is gone?",
+        response: {
+          sender: "Jon",
+          text: "Not exactly. Some buyers are hunting discounts. That is not the same as the whole market being healthy again."
+        }
+      },
+      {
+        id: "p4c2_d",
+        question: "Which assets would be easiest to move today?",
+        response: {
+          sender: "Jon",
+          text: "Government bonds and broad equities are easier. Clean senior paper can move. Complex structured names need a conversation."
+        }
+      }
+    ]
+  },
+  phase5_chat2: {
+    interactive: true,
+    followUps: [
+      {
+        id: "p5c2_a",
+        question: "If we need cash today, what sells first?",
+        response: {
+          sender: "Jon",
+          text: "Government bonds, broad equities, and maybe clean senior paper. The hard part is that selling liquid assets leaves the difficult positions behind."
+        }
+      },
+      {
+        id: "p5c2_b",
+        question: "Can we sell structured assets without looking distressed?",
+        response: {
+          sender: "Jon",
+          text: "Some clean names, yes. But if we show too much size, dealers will know we need cash and the bid will move against us."
+        }
+      },
+      {
+        id: "p5c2_c",
+        question: "Are lower-quality positions still tradeable?",
+        response: {
+          sender: "Jon",
+          text: "Tradeable, but not cleanly. Bids are lower, slower, and more conditional. That is not where I would go first for urgent cash."
+        }
+      },
+      {
+        id: "p5c2_d",
+        question: "What is the execution risk now?",
+        response: {
+          sender: "Jon",
+          text: "Execution risk is that the price you think you have disappears when you show size. Liquidity is there, but it is thinner than it looks."
+        }
+      }
+    ]
+  },
+  phase5_chat3: {
+    interactive: true,
+    followUps: [
+      {
+        id: "p5c3_a",
+        question: "How do we explain raising cash without sounding panicked?",
+        response: {
+          sender: "Maya",
+          text: "Frame it as liquidity discipline. We are not abandoning the strategy; we are making sure the fund can meet cash needs without forced selling."
+        }
+      },
+      {
+        id: "p5c3_b",
+        question: "What will clients worry about most?",
+        response: {
+          sender: "Maya",
+          text: "They will worry that we waited too long. They will also worry if we sell too aggressively and lock in losses."
+        }
+      },
+      {
+        id: "p5c3_c",
+        question: "What does the committee need to hear?",
+        response: {
+          sender: "Maya",
+          text: "They need a clear liquidity plan: what we can sell, what we should avoid dumping, and how much cash buffer we need."
+        }
+      },
+      {
+        id: "p5c3_d",
+        question: "Would reducing risk now look like admitting failure?",
+        response: {
+          sender: "Maya",
+          text: "It could, unless we explain that the objective has changed. This is no longer just about return. It is about staying liquid."
+        }
+      }
+    ]
+  },
+  phase6_chat1: {
+    interactive: true,
+    followUps: [
+      {
+        id: "p6c1_a",
+        question: "What matters first now?",
+        response: {
+          sender: "Lena",
+          text: "Survival. We need enough liquidity to operate, clear documentation for every decision, and a realistic view of what can actually be sold."
+        }
+      },
+      {
+        id: "p6c1_b",
+        question: "Should we sell everything risky?",
+        response: {
+          sender: "Lena",
+          text: "No clean answer. Selling everything may lock in panic prices. Selling too little may leave us unable to meet cash needs."
+        }
+      },
+      {
+        id: "p6c1_c",
+        question: "How should we treat current marks?",
+        response: {
+          sender: "Lena",
+          text: "With caution. Marks are less useful when buyers disappear, funding lines tighten, and execution depends on who still trusts the counterparty."
+        }
+      },
+      {
+        id: "p6c1_d",
+        question: "What decision can we defend later?",
+        response: {
+          sender: "Lena",
+          text: "One that protects liquidity, avoids unnecessary fire sales, and shows that we understood the difference between accounting value and cash value."
+        }
+      }
+    ]
+  }
 };
 
 // Belief updating is only meaningful once warning signals start changing.
@@ -729,6 +1065,7 @@ let viewedChannels = {};
 let activeChannel = null;
 let activeChannelStart = null;
 let activeDocumentSession = null;
+let pendingFollowUpResponses = {};
 let gameState = initialState();
 
 function initialState() {
@@ -746,6 +1083,7 @@ function initialState() {
     emailReplies: {},
     socialReplies: {},
     chatReplies: {},
+    selectedFollowUps: {},
     decisionLog: [],
     lastOutcomeText: "",
     allocation: {
@@ -855,15 +1193,23 @@ function parseEmailCell(text) {
   };
 }
 
-function parseChatCell(text) {
+function parseChatCell(text, phaseIndex, chatIndex) {
   const lines = cleanText(text).split(/\n+/).map(x => x.trim()).filter(Boolean);
   const contact = lines.shift() || "Chat";
+  const id = `phase${phaseIndex}_chat${chatIndex}`;
+  const followUpConfig = interactiveChatFollowUps[id] || {};
   const messages = lines.map(line => {
     const colon = line.indexOf(":");
     if (colon > -1) return { from: line.slice(0, colon).trim(), text: line.slice(colon + 1).trim() };
     return { from: "System", text: line };
   });
-  return { contact, messages };
+  return {
+    id,
+    contact,
+    messages,
+    interactive: Boolean(followUpConfig.interactive),
+    followUps: followUpConfig.followUps || []
+  };
 }
 
 function parseFileCell(text, phaseIndex, fileIndex) {
@@ -1009,7 +1355,7 @@ function buildPhases() {
           posts: raw.posts.map((cell, postIdx) => parsePostCell(cell, postIdx + 1))
         },
         email: raw.emails.map(parseEmailCell),
-        chat: raw.chats.map(parseChatCell)
+        chat: raw.chats.map((cell, chatIdx) => parseChatCell(cell, phaseIndex, chatIdx + 1))
       },
       documents: raw.files.map((cell, fileIdx) => parseFileCell(cell, phaseIndex, fileIdx + 1)),
       decisions: raw.options.map((cell, optIdx) => parseDecisionOption(cell, optIdx + 1)),
@@ -1706,8 +2052,69 @@ function getEmailDraft(index) {
    CHAT
 ========================= */
 
+function renderChatFollowUps(chat) {
+  if (!chat?.interactive || !chat.followUps.length) return "";
+  const selectedId = gameState.selectedFollowUps[chat.id];
+
+  return `
+    <div class="chat-followups" data-chat-id="${escapeHTML(chat.id)}">
+      <div class="chat-followup-label">Choose one follow-up to ask</div>
+      ${chat.followUps.map(followUp => `
+        <button
+          class="chat-followup-btn ${followUp.id === selectedId ? "selected" : ""}"
+          type="button"
+          data-followup-id="${escapeHTML(followUp.id)}"
+          ${selectedId ? "disabled" : ""}
+        >
+          ${escapeHTML(followUp.question)}
+        </button>
+      `).join("")}
+    </div>
+  `;
+}
+
+function getSelectedFollowUp(chat) {
+  if (!chat?.interactive) return "";
+  const selectedId = gameState.selectedFollowUps[chat.id];
+  return chat.followUps.find(item => item.id === selectedId);
+}
+
+function renderSelectedFollowUpExchange(chat) {
+  const followUp = getSelectedFollowUp(chat);
+  if (!followUp) return "";
+
+  const questionBubble = `
+    <div class="message outgoing followup-question">
+      <strong>You</strong><br>${escapeHTML(followUp.question)}
+    </div>
+  `;
+
+  if (pendingFollowUpResponses[chat.id]) {
+    return questionBubble + `
+      <div class="message incoming typing-message" aria-label="${escapeHTML(followUp.response.sender)} is typing">
+        <strong>${escapeHTML(followUp.response.sender)}</strong><br>
+        <span class="typing-dots" aria-hidden="true"><span></span><span></span><span></span></span>
+      </div>
+    `;
+  }
+
+  if (!followUp?.response) return "";
+
+  return questionBubble + `
+    <div class="message incoming followup-response">
+      <strong>${escapeHTML(followUp.response.sender)}</strong><br>${escapeHTML(followUp.response.text)}
+    </div>
+  `;
+}
+
+function scrollChatMessagesToBottom() {
+  const messages = document.querySelector(".chat-messages");
+  if (messages) messages.scrollTop = messages.scrollHeight;
+}
+
 function renderChat(conversations) {
   const current = conversations[activeChatIndex];
+  if (!current) return;
   markSourceItemViewed("chat", activeChatIndex);
   const replies = gameState.chatReplies[gameState.phase] && gameState.chatReplies[gameState.phase][activeChatIndex]
     ? gameState.chatReplies[gameState.phase][activeChatIndex]
@@ -1731,11 +2138,9 @@ function renderChat(conversations) {
               <strong>${cleanText(message.from)}</strong><br>${cleanText(message.text)}
             </div>
           `).join("")}
+          ${renderChatFollowUps(current)}
+          ${renderSelectedFollowUpExchange(current)}
           ${replies.map(reply => `<div class="message outgoing"><strong>You</strong><br>${escapeHTML(reply)}</div>`).join("")}
-        </div>
-        <div class="chat-input">
-          <input id="chat-reply-text" placeholder="Type a message..." />
-          <button id="send-chat-reply">Send</button>
         </div>
       </main>
     </div>
@@ -1748,16 +2153,22 @@ function renderChat(conversations) {
     });
   });
 
-  document.getElementById("send-chat-reply").addEventListener("click", () => {
-    const input = document.getElementById("chat-reply-text");
-    const text = input.value.trim();
-    if (!text) return;
-    if (!gameState.chatReplies[gameState.phase]) gameState.chatReplies[gameState.phase] = {};
-    if (!gameState.chatReplies[gameState.phase][activeChatIndex]) gameState.chatReplies[gameState.phase][activeChatIndex] = [];
-    gameState.chatReplies[gameState.phase][activeChatIndex].push(text);
-    input.value = "";
-    renderChat(conversations);
+  document.querySelectorAll(".chat-followup-btn").forEach(button => {
+    button.addEventListener("click", () => {
+      if (gameState.selectedFollowUps[current.id]) return;
+      gameState.selectedFollowUps[current.id] = button.dataset.followupId;
+      pendingFollowUpResponses[current.id] = true;
+      renderChat(conversations);
+      window.setTimeout(() => {
+        pendingFollowUpResponses[current.id] = false;
+        if (currentTab === "chat" && conversations[activeChatIndex]?.id === current.id) {
+          renderChat(conversations);
+        }
+      }, 1200);
+    });
   });
+
+  scrollChatMessagesToBottom();
   registerSourceScroll(".chat-messages", "chat", activeChatIndex);
 }
 
@@ -1906,12 +2317,43 @@ function renderChoiceButton(decision, index) {
 function applyAllocationDelta(delta) {
   if (!delta) return;
   const next = { ...gameState.allocation };
+
+  let totalActualReduction = 0;
+  let requestedIncrease = 0;
+
   Object.entries(delta).forEach(([asset, change]) => {
-    next[asset] = clamp((next[asset] || 0) + change, 0, 1);
+    if (change < 0) {
+      const current = next[asset] || 0;
+      const actualReduction = Math.min(current, Math.abs(change));
+      next[asset] = current - actualReduction;
+      totalActualReduction += actualReduction;
+    } else if (change > 0) {
+      requestedIncrease += change;
+    }
   });
-  const total = Object.values(next).reduce((sum, value) => sum + value, 0);
-  if (total <= 0) return;
-  Object.keys(next).forEach(asset => { next[asset] = next[asset] / total; });
+
+  const increaseScale = requestedIncrease > 0
+    ? Math.min(1, totalActualReduction / requestedIncrease)
+    : 0;
+  let totalActualIncrease = 0;
+
+  Object.entries(delta).forEach(([asset, change]) => {
+    if (change > 0) {
+      const actualIncrease = change * increaseScale;
+      next[asset] = (next[asset] || 0) + actualIncrease;
+      totalActualIncrease += actualIncrease;
+    }
+  });
+
+  const unusedReduction = totalActualReduction - totalActualIncrease;
+  if (unusedReduction > 0) {
+    next.cash = (next.cash || 0) + unusedReduction;
+  }
+
+  Object.keys(next).forEach(asset => {
+    next[asset] = clamp(next[asset], 0, 1);
+  });
+
   gameState.allocation = next;
 }
 
@@ -2336,6 +2778,7 @@ function startGame() {
   activeChannel = null;
   activeChannelStart = null;
   activeDocumentSession = null;
+  pendingFollowUpResponses = {};
   gameState = initialState();
   showPage("game");
   loadPhase();
@@ -2351,6 +2794,7 @@ if (restartBtn) {
     activeChannel = null;
     activeChannelStart = null;
     activeDocumentSession = null;
+    pendingFollowUpResponses = {};
     gameState = initialState();
     showPage("landing");
   });
@@ -2363,6 +2807,7 @@ if (backLandingFromRevealBtn) {
     activeChannel = null;
     activeChannelStart = null;
     activeDocumentSession = null;
+    pendingFollowUpResponses = {};
     gameState = initialState();
     showPage("landing");
   });
