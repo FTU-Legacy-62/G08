@@ -1,4 +1,4 @@
-/* =========================
+﻿/* =========================
    FREE FALL - UPDATED FINAL MVP ENGINE
    Updated from the latest New information.zip (Freefall.xlsx, mail.docx, evidence files, final feedback logic).
 
