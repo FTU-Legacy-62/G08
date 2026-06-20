@@ -1,4 +1,4 @@
-﻿/* =========================
+/* =========================
    FREE FALL - CINEMATIC UI REBUILD
    Reworked to match the dark / elegant / dashboard feel
    while keeping the original HTML class structure.
@@ -1901,6 +1901,7 @@ button {
   margin-bottom: 14px;
   font-size: 16px;
   line-height: 1.45;
+  animation: chatBubbleIn 0.22s ease both;
 }
 
 .message.incoming {
@@ -1912,6 +1913,169 @@ button {
   background: #111318;
   color: white;
   margin-left: auto;
+}
+
+.message.followup-response {
+  border-color: #c9d6f2;
+  background: #f5f8ff;
+}
+
+.message.followup-question {
+  background: #1a1f2a;
+}
+
+.message.typing-message {
+  width: fit-content;
+  min-width: 92px;
+}
+
+.chat-followups {
+  display: grid;
+  gap: 10px;
+  justify-items: end;
+  width: min(78%, 760px);
+  margin: 8px 0 20px auto;
+  padding: 14px;
+  border: 1px solid #d7deec;
+  border-radius: 18px 18px 4px 18px;
+  background: linear-gradient(180deg, #f7f9ff 0%, #eef3ff 100%);
+  box-shadow: 0 14px 30px rgba(27, 39, 69, 0.08);
+}
+
+.chat-followup-label {
+  justify-self: end;
+  color: #56627a;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.chat-followup-btn {
+  position: relative;
+  width: 100%;
+  border: 1px solid #1f2937;
+  background: #fff;
+  color: #111827;
+  border-radius: 16px 16px 4px 16px;
+  padding: 12px 16px 12px 48px;
+  font: inherit;
+  font-size: 14px;
+  line-height: 1.35;
+  text-align: left;
+  cursor: pointer;
+  transition: 0.16s ease;
+}
+
+.chat-followup-btn::after {
+  content: "?";
+  position: absolute;
+  left: 13px;
+  top: 50%;
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  background: #111318;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 900;
+  line-height: 22px;
+  text-align: center;
+  transform: translateY(-50%);
+}
+
+.chat-followup-btn:hover {
+  border-color: #111318;
+  background: #111318;
+  color: #fff;
+  transform: translateY(-1px) translateX(-2px);
+  box-shadow: 0 10px 22px rgba(17, 19, 24, 0.16);
+}
+
+.chat-followup-btn:hover::after {
+  background: #fff;
+  color: #111318;
+}
+
+.chat-followup-btn.selected {
+  border-color: #111318;
+  background: #111318;
+  color: #fff;
+  font-weight: 800;
+  box-shadow: 0 10px 22px rgba(17, 19, 24, 0.16);
+}
+
+.chat-followup-btn.selected::after {
+  content: "\2713";
+  background: #fff;
+  color: #111318;
+}
+
+.chat-followup-btn:disabled {
+  cursor: default;
+  opacity: 0.58;
+}
+
+.chat-followup-btn.selected:disabled {
+  opacity: 1;
+}
+
+.chat-followup-btn:disabled:hover {
+  background: #fff;
+  color: #111827;
+  transform: none;
+  box-shadow: none;
+}
+
+.chat-followup-btn.selected:disabled:hover {
+  background: #111318;
+  color: #fff;
+  box-shadow: 0 10px 22px rgba(17, 19, 24, 0.16);
+}
+
+.typing-dots {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  height: 18px;
+}
+
+.typing-dots span {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: #7d8798;
+  animation: typingPulse 0.95s ease-in-out infinite;
+}
+
+.typing-dots span:nth-child(2) {
+  animation-delay: 0.14s;
+}
+
+.typing-dots span:nth-child(3) {
+  animation-delay: 0.28s;
+}
+
+@keyframes chatBubbleIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes typingPulse {
+  0%, 80%, 100% {
+    opacity: 0.35;
+    transform: translateY(0);
+  }
+  40% {
+    opacity: 1;
+    transform: translateY(-3px);
+  }
 }
 
 .chat-input {
